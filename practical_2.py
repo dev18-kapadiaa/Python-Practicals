@@ -1,56 +1,26 @@
-
-# def generateParenthesis(N):
-#     stack = []
-#     result = []
-#
-#     def recursion(openBrackets, closedBrackets):
-#         if openBrackets == closedBrackets == N:
-#             result.append("".join(stack))
-#             return
-#
-#         if openBrackets < N:
-#             stack.append("(")
-#             recursion(openBrackets + 1, closedBrackets)
-#             stack.pop()
-#
-#         if closedBrackets < openBrackets:
-#             stack.append(")")
-#             recursion(openBrackets, closedBrackets + 1)
-#             stack.pop()
-#
-#
-#
-#     recursion(0,0)
-#     return result
-#
-#
-# try:
-#     n = int(input("Enter No. of pair of Brackets:"))
-#     if n not in range(1,9):
-#         raise ValueError
-#     else:
-#         answer = generateParenthesis(n)
-#         print(answer)
-# except ValueError:
-#     print("Enter Value from range 1 to 8")
-
-#Alternative-2
-
-
 def generateParenthesis(n, Open, close, s, ans):
 
-	if(Open == n and close == n):
-		ans.append(s)
-		return
+    """
+    recursive definition of balanced parenthesis for Opening brackets and closing brackets.
+    Opening parenthesis can be maximum n and if both closing and opening parenthesis are equal to n then we can get our first combination, likewise run program
+    recursively. And opening parenthesis can be maximum equal to n and according to that we need to arrange and generate combination of closing parenthesis.
+    """
 
-	if(Open < n):
-		generateParenthesis(n, Open+1, close, s+"(", ans)
+    if(Open == n and close == n):
+        ans.append(s)
+        return
 
-	if(close < Open):
-		generateParenthesis(n, Open, close + 1, s+")", ans)
+    #Add opening parenthesis recursively
+    if(Open < n):
+        generateParenthesis(n, Open+1, close, s+"(", ans)
+
+    #Add closing parenthesis recursively.
+    if(close < Open):
+        generateParenthesis(n, Open, close + 1, s+")", ans)
 
 
 try:
+     #generate exception for values entered is above 8 or less than 1 according to specified constraint.
      n = int(input("Enter No. of pair of Brackets:"))
      if n not in range(1,9):
          raise ValueError

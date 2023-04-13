@@ -5,7 +5,7 @@ def get_values():
     print("Enter first number:")
     num1 = input()
 
- #exception handling for string number-1 for numeric entry or unsuccessful conversion
+ #exception handling for string number-1 for numeric entry or for unsuccessful conversion
     try:
         if num1.isnumeric():
             raise numeric_error
@@ -18,7 +18,7 @@ def get_values():
         print("Please enter correct format")
         exit()
 
-
+ # exception handling for string number-2 for numeric entry or for unsuccessful conversion
     print("Enter second number:")
     num2 = input()
     try:
@@ -42,7 +42,7 @@ def get_values():
 
 
 def string_to_num(num):
-
+        """ convert provided string to respective numbers"""
 
         if 'zero' in num:
              num = num.replace("zero", "0")
@@ -69,6 +69,7 @@ def string_to_num(num):
 
 def num_to_string(num):
 
+        """ convert obtained GCD to respective string"""
         if '0' in num:
             num = num.replace("0", "zero")
         if '1' in num:

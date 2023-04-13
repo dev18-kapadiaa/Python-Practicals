@@ -1,10 +1,14 @@
+#exception for string size > 100.
 class StringSizeExceeded(Exception):
     pass
 
+#exception for array size > 104.
 class lengthOverFlow(Exception):
     pass
 
 def Anagrams(li):
+    """Sort word alphabetically and add in dictionary and check if that already exists in dictionary or not if it exists then append in dicitojnary's value part.
+    And print value pairs of dictionary as an anagram group."""
     dictionary = {}
     for word in li:
         sortedWord = ''.join(sorted(word))
@@ -17,7 +21,7 @@ def Anagrams(li):
     return [dictionary[i] for i in dictionary]
 
 
-
+#exceptions for input array size, string length and input string capitalization.
 try:
     arr = input("Enter array:")
     list = eval(arr)
