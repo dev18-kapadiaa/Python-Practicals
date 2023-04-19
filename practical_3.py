@@ -32,7 +32,7 @@ try:
             if j.isupper():
                 raise ValueError
     if len(list) > 104:
-        raise lengthOverflow
+        raise lengthOverFlow
 
 except StringSizeExceeded:
     print("Length limit of a String exceeded.")
